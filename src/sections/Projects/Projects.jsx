@@ -1,8 +1,10 @@
 import React from 'react';
 import styles from './ProjectsStyles.module.css';
+import ProjectsCard from '../../common/ProjectsCard';
 // create and add ttwoImg
 import ttwoImg from '../../assets/viberr.png';
-import ProjectsCard from '../../common/ProjectsCard';
+// create and add ytImg
+import ytImg from '../../assets/fitlift.png';
 
 function Projects() {
   return (
@@ -18,6 +20,12 @@ function Projects() {
             link="https://github.com/Luffy-456/TTWO-Stock-Analysis-and-Prediction"
             h3="TTWO Stock Analysis and Prediction"
             p="Machine Learning Project for Stock Analysis & Prediction"
+          />
+          <ProjectsCard 
+            src={ytImg}
+            link="https://github.com/Luffy-456/youtube-clone"
+            h3="YouTube Clone"
+            p="A static, replica of YouTube's UI built with HTML and CSS. (In Development)"
           />
      </div>
     </section>
