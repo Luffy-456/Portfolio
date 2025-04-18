@@ -77,3 +77,29 @@
     flex-direction: column;
     gap: 20px;
 }
+
+
+/* will get active on 800px */
+@media (width >= 800px){
+    .container{
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: space-evenly;
+    
+
+        .hero{
+            max-width: 1000px;
+            width: 375px;
+        }
+    }
+}
+
+/* will get active on 1400px */
+@media (width >= 800px){
+    .container{
+        .hero{
+            max-width: 1000px;
+            width: 475px;
+        }
+    }
+}

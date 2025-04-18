@@ -19,13 +19,14 @@ function Projects() {
             src={ttwoImg}
             link="https://github.com/Luffy-456/TTWO-Stock-Analysis-and-Prediction"
             h3="TTWO Stock Analysis and Prediction"
-            p="Machine Learning Project for Stock Analysis & Prediction"
+            p="Machine Learning Project for
+            Stock Analysis & Prediction"
           />
           <ProjectsCard 
             src={ytImg}
             link="https://github.com/Luffy-456/youtube-clone"
             h3="YouTube Clone"
-            p="A static, replica of YouTube's UI built with HTML and CSS. (In Development)"
+            p="A static, replica of YouTube's UI built with HTML and CSS. (In Progress)"
           />
      </div>
     </section>
