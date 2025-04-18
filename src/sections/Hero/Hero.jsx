@@ -49,7 +49,7 @@ function Hero() {
             </span>
 
             {/* aboutbusiness */}
-            <p>Add somthing about myself later</p>
+            <p className={styles.description} >Add somthing about myself later</p>
             
             {/* cv/resume */}
             {/* ADD CV LATER  */}
