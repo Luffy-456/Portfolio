@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useState,useEffect} from "react";
 import { Button } from "@/components/Button";
 import { Menu,X } from "lucide-react";
 
@@ -12,16 +12,33 @@ const navLinks = [
 export const Navbar = () => {
     // isMM: isMoobileMenuOpen, setMM: setIsMoobileMenuOpen
     const [isMM, setMM] =useState(false);
+    
+    //isS: isScrolled, setS:setScrolled
+    const[isS,setS]=useState(false);
+
+    useEffect(()=>{
+        const handleScroll=()=>{
+            setS(window.scrollY>50);
+        };
+
+
+        window.addEventListener("scroll",handleScroll);
+
+        return()=>window.removeEventListener("scroll",handleScroll);
+    },[]);
+
     return (
         <header
-            className="fixed top-0 left-0 right-0 bg-transparent py-5"
+            className={`fixed top-0 left-0 right-0 transition-all duration-500 ${
+        isS ? "glass-strong py-3" : "bg-transparent py-5"
+      }  z-50`}
         >
             <nav className="container mx-auto px-6 flex items-center justify-between">
                 <a
                     href="#"
-                    className="text-xl font-bold tracking-tight hover:text-primary"
+                    className=" text-xl font-bold tracking-tight hover:text-primary transition-colors duration-300"
                 >
-                    LUFFY<span className="text-primary">.</span>
+                    LUFFY <span className="inline-block w-2 h-2 bg-primary rounded-full animate-pulse" />
                 </a>
 
                 {/* desktop */}

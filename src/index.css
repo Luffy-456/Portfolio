@@ -55,7 +55,21 @@
     backdrop-filter: blur(24px);
     border: 1px solid color-mix(in srgb, var(--color-border) 60%, transparent);
   }
+
+  .glow-text{
+    text-shadow:
+    0 0 5px #20b2a6,
+    0 0 10px #20b2a6,
+    0 0 20px #20b2a6,
+    0 0 40px #20b2a6;
+  }
+
+  .glow-border{
+    box-shadow: 0 0 20px color-mix(in srgb , var(--color-primary) 20%, transparent),
+    inset 0 0 20px color-mix(in srgb , var(--color-primary) 5% , transparent);
+  }
 }
+
 
 /* animations */
 @layer utilities{
@@ -63,7 +77,7 @@
     from {
       opacity:0; 
       transform: translateY(20px); 
-      filter:blur(45%);
+      filter:blur(45px);
     }
     to{
       opacity:1;
@@ -74,4 +88,77 @@
   .ani-fade-in{
     animation: fade-in 0.8s ease-out both;
   }
+
+
+
+/* animation for the dots */
+  @keyframes dot-ani{
+    0%,
+    100%{
+      transform: translate(0px,0px);
+    }
+    25%{
+      transform: translate(20px,-30px);
+    }
+    50%{
+      transform: translate(-15px,-20px);
+    }
+    75%{
+      transform: translate(30px,10px);
+    }
+
+  }
+
+/* animation delay */
+  .ani-delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .ani-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .ani-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .ani-delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .ani-delay-500 {
+    animation-delay: 500ms;
+  }
+
+  .ani-delay-600 {
+    animation-delay: 600ms;
+  }
+
+  .ani-delay-800 {
+    animation-delay: 800ms;
+  }
+
+
+/* animated borders */
+@keyframes ani-border {
+    0% {
+      stroke-dashoffset: 400;
+    }
+    100% {
+      stroke-dashoffset: -550;
+    }
+  }
+
+.ani-border:hover{
+  background-color: color-mix(in srgb , #26c4b8 15%, transparent);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 0 20px color-mix(in srgb , #26c4b8 20%, transparent);
+}
+
+/* animation around Download */
+.group:hover .ani-border-path{
+  animation: ani-border 1.5s linear infinite;
+}
+
+
 }
