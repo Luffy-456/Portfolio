@@ -1,6 +1,7 @@
 import {Button} from "@/components/Button";
 import { ArrowRight, Download } from "lucide-react";
 import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
+import { FaGithub, FaLinkedin, FaTelegram} from "react-icons/fa";
 
 
 export const Hero=() =>{
@@ -66,22 +67,25 @@ export const Hero=() =>{
 
 {/* need to fix social */}
                     {/* socials */}
-                    {/* <div className="flex items-center gap-4 animate-fade-in animation-delay-400">
-              <span className="text-sm text-muted-foreground">Follow me: </span>
-              {[
-                { icon: computer, href: "#" },
-                { icon: Linkedin, href: "#" },
-                { icon: Twitter, href: "#" },
-              ].map((social, idx) => (
-                <a
-                  key={idx}
-                  href={social.href}
-                  className="p-2 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all duration-300"
-                >
-                  {<social.icon className="w-5 h-5" />}
-                </a>
-              ))}
-            </div> */}
+                        <div className="flex items-center gap-4 animate-fade-in animation-delay-400">
+                            <span className="text-sm text-muted-foreground">
+                                Follow me:
+                            </span>
+
+                            {[
+                                { icon: FaGithub, href: "#" },
+                                { icon: FaLinkedin, href: "#" },
+                                { icon: FaTelegram, href: "#" },
+                            ].map((social, idx) => (
+                                <a
+                                key={idx}
+                                href={social.href}
+                                className="p-2 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all duration-300"
+                                >
+                                <social.icon className="w-5 h-5" />
+                                </a>
+                            ))}
+                        </div>
                 
                     
                 </div>
