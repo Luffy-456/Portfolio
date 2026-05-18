@@ -1,30 +1,76 @@
 @import "tailwindcss";
-body{
+
+/* custom cursor css */
+*{
   cursor: none;
 }
 
-.cursor{
+.cursor {
   position: fixed;
   width: 12px;
   height: 12px;
-  background: #1cfaef;
-  border-radius: 50%;
+  background: #26c4b8;
+  border-radius: 9999px;
   pointer-events: none;
-  z-index:9999 ;
-  transition: transform 0.1s, opacity 0.3s;
+  z-index: 9999;
+
+  transform: translate(-50%, -50%);
+  transition:
+    width 0.25s ease,
+    height 0.25s ease,
+    background 0.25s ease,
+    transform 0.1s ease;
+
+  box-shadow:
+    0 0 10px rgba(38, 196, 184, 0.8),
+    0 0 20px rgba(38, 196, 184, 0.4);
+
   mix-blend-mode: difference;
 }
 
-.cursor-tail{
+.cursor-tail {
   position: fixed;
-  width: 32px;
-  height: 32px;
-  border: 1.5px solid #1cfaef;
-  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  border: 1.5px solid rgba(38, 196, 184, 0.7);
+  border-radius: 9999px;
   pointer-events: none;
-  z-index:9999 ;
-  transition: transform 0.20s, opacity 0.3s;
-  opacity: 0.5;
+  z-index: 9998;
+
+  transform: translate(-50%, -50%);
+  transition:
+    width 0.3s ease,
+    height 0.3s ease,
+    border 0.3s ease,
+    opacity 0.3s ease;
+
+  backdrop-filter: blur(4px);
+}
+
+/* hover state */
+.cursor-hover {
+  width: 22px;
+  height: 22px;
+  background: white;
+}
+
+.cursor-tail-hover {
+  width: 60px;
+  height: 60px;
+  border-color: white;
+  opacity: 0.8;
+}
+
+/* mobile */
+@media (hover: none) and (pointer: coarse) {
+  .cursor,
+  .cursor-tail {
+    display: none;
+  }
+
+  * {
+    cursor: auto !important;
+  }
 }
 
 @theme {
