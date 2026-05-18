@@ -2,6 +2,8 @@ import { Button } from "@/components/Button";
 import { ArrowRight, Download } from "lucide-react";
 import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
 import { FaGithub, FaLinkedin, FaTelegram } from "react-icons/fa";
+import heroBg from "@/assets/hero-bg.png";
+import heroProfile from "@/assets/hero-profile.jpeg";
 
 export const Hero = () => {
   return (
@@ -9,7 +11,7 @@ export const Hero = () => {
       {/* bg */}
       <div className="absolute inset-0">
         <img
-          src="./src/assets/hero-bg.png"
+          src={heroBg}
           alt="hero bg img"
           className="w-full h-full object-cover opacity-60"
         />
@@ -103,7 +105,7 @@ export const Hero = () => {
               />
               <div className="relative glass rounded-3xl p-2 glow-border">
                 <img
-                  src="./src/assets/hero-profile.jpeg"
+                  src={heroProfile}
                   alt="Luffy"
                   className="w-full aspect-[4/5] object-cover rounded-2xl"
                 />
