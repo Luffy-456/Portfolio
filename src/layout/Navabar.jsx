@@ -75,12 +75,12 @@ export const Navbar = () => {
                     <div className="container mx-auto p-6 flex flex-col gap-4">
                         {/* render all nav items */}
                         {navLinks.map((link, idx) => (
-                            <a href={link.href} key={idx} className="text-lg text-muted-foreground hover:text-foreground py-2">
+                            <a href={link.href} key={idx} className="text-lg text-muted-foreground hover:text-foreground py-2" onClick={()=>setMM(false)}>
                             {link.label}
                         </a>
                         ))}
 
-                        <Button size="sm">
+                        <Button onClick={()=>setMM(false)}>
                             Contact ME
                         </Button>
                     </div>
