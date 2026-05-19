@@ -125,7 +125,7 @@ export const Hero = () => {
                 <img
                   src={heroProfile}
                   alt="Luffy"
-                  className="w-full aspect-[4/5] object-cover rounded-2xl"
+                  className="aspect-[5/8] object-cover rounded-2xl"
                 />
               {/* floating badge on profile img */}
                     <div className="absolute -bottom-4 -right-4 glass rounded-xl px-4 py-3 ani-float">
