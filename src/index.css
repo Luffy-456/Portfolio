@@ -72,6 +72,7 @@
     cursor: auto !important;
   }
 }
+/* cursor custom css end */
 
 @theme {
   --color-background: #0f1418;
@@ -181,6 +182,37 @@
     }
 
   }
+
+/* animation for floating badge */
+  @keyframes float{
+    0%,
+    100%{
+      transform: translateY(0);
+    }
+    50%{
+      transform: translateY(-10px);
+    }
+  }
+
+  .ani-float{
+    animation: float 4s ease-in-out infinite;
+  }
+
+
+/* animation for skills tab */
+  @keyframes marquee{
+    0%{
+      transform: translateX(0);
+    }
+    100%{
+      transform: translateX(-50%);
+    }
+  }
+
+  .ani-marquee{
+    animation: marquee 22s linear infinite;
+  }
+
 
 /* animation delay */
   .ani-delay-100 {

@@ -5,6 +5,24 @@ import { FaGithub, FaLinkedin, FaTelegram } from "react-icons/fa";
 import heroBg from "@/assets/hero-bg.png";
 import heroProfile from "@/assets/hero-profile.jpeg";
 
+const skills=[
+    "React",
+    "Tailwindcss",
+    "HTML",
+    "CSS",
+    "C",
+    "C++",
+    "JAVA",
+    "PYTHON",
+    "MySQL",
+    "DEBUGGING",
+    "JAVA SCRIPT",
+    "BOOTSTRAP",
+    "GIT",
+    "DOCKER",
+    "AWS"
+];
+
 export const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden ">
@@ -109,10 +127,46 @@ export const Hero = () => {
                   alt="Luffy"
                   className="w-full aspect-[4/5] object-cover rounded-2xl"
                 />
+              {/* floating badge on profile img */}
+                    <div className="absolute -bottom-4 -right-4 glass rounded-xl px-4 py-3 ani-float">
+                        <div className="flex items-center gap-3">
+                            <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
+                            <span className="text-md font-mono">Available for Work!</span>
+                        </div>
+                    </div>
+
+
+              {/* stats badge */}
+                    <div className="absolute -top-4 -left-4 glass rounded-xl px-4 py-3 ani-float ani-delay-500">
+                        <div className="text-md font-bold text-primary">Fresher</div>
+                    </div>
+
+
               </div>
+
+
+
             </div>
           </div>
         </div>
+
+        {/* SKILLS */}
+              <div className="mt-20 ani-fade-in ani-delay-600">
+                <p className="tex-sm text-muted-foreground mb-6 text-center">Technologies</p>
+                <div className="realtive overflow-hidden">
+                    <div className="flex ani-marquee">
+                        {
+                            [...skills, ...skills].map((skill, idx) => (
+                                <div key={idx} className="flex-shrink-0 px-8 py-4">
+                                {skill.name}
+                                <span className="text-xl font-semibold text-muted-foreground/50 hover:text-muted-foreground transition-colors">{skill}</span>
+                                </div>
+
+                            ))}
+                    </div>
+                </div>
+              </div>
+
       </div>
     </section>
   );
