@@ -14,7 +14,7 @@ const projects=[
 ];
 export const Proj=() =>{
     return <section id="Proj" className="py-32 relative overflow-hidden">
-        <div className="absolute top-1/4 right-0 w-96 bg-primary/5 rounded-full blur-3xl"/>
+        <div className="absolute top-1/4 right-0 w-96 bg-primary/5 rounded-full blur-3xl -translate-y-1"/>
         <div className="absolute bottom-1/4 left-0 w-64 h-64 bg-highlight/5 rounded-full blur-3xl"/>
         <div className="container mx-auto px-6 relative z-10">
             {/* proj section header */}
