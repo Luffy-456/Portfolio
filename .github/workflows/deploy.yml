@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -57,7 +57,41 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    outputs:
+      page_url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
+
+  update-readme:
+    needs: deploy
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Update README
+        run: |
+          DEPLOY_URL="${{ needs.deploy.outputs.page_url }}"
+
+          if grep -q "## Live Demo" README.md; then
+            sed -i "/## Live Demo/{n;s|.*|$DEPLOY_URL|;}" README.md
+          else
+            echo -e "\n## Live Demo\n$DEPLOY_URL" >> README.md
+          fi
+
+      - name: Commit Changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add README.md
+          git commit -m "docs: update deploy link" || echo "No changes"
+
+          git push
