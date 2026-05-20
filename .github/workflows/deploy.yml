@@ -1,70 +1,69 @@
 name: Deploy Portfolio
 
 on:
-push:
-branches:
-- main
+  push:
+    branches:
+      - main
 
-workflow_dispatch:
+  workflow_dispatch:
 
 permissions:
-  contents: read
   contents: write
-pages: write
-id-token: write
+  pages: write
+  id-token: write
 
 concurrency:
-group: "pages"
-cancel-in-progress: false
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
-build:
-runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest
 
-steps:
-- name: Checkout Repository
-uses: actions/checkout@v4
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-- name: Setup Node.js
-uses: actions/setup-node@v4
-with:
-node-version: 20
-cache: npm
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
 
-- name: Install Dependencies
-run: npm install
+      - name: Install Dependencies
+        run: npm install
 
-- name: Build Vite App
-run: npm run build
+      - name: Build Vite App
+        run: npm run build
 
-- name: Setup GitHub Pages
-uses: actions/configure-pages@v5
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
 
-- name: Upload Production Files
-uses: actions/upload-pages-artifact@v3
-with:
-path: ./dist
+      - name: Upload Production Files
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
 
-deploy:
-needs: build
+  deploy:
+    needs: build
 
-permissions:
-pages: write
-id-token: write
+    permissions:
+      pages: write
+      id-token: write
 
-environment:
-name: github-pages
-url: ${{ steps.deployment.outputs.page_url }}
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
-runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
     outputs:
       page_url: ${{ steps.deployment.outputs.page_url }}
 
-steps:
-- name: Deploy to GitHub Pages
-id: deployment
-uses: actions/deploy-pages@v5
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
 
   update-readme:
     needs: deploy
