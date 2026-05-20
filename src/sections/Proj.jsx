@@ -37,7 +37,7 @@ export const Proj=() =>{
                             <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"/>
 
                         {/* links */}
-                        <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration:300">
+                        <div className="absolute inset-0 flex items-center justify-center gap-4 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ">
                             <a href={project.link} className="p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all " target="_blank">
                                 <ArrowUpRight className="w-5 h-5"/>
                             </a>
@@ -50,7 +50,7 @@ export const Proj=() =>{
                     {/* content */}
                     <div className="p-6 space-y-4">
                         <div className="flex items-start justify-between">
-                            <h3 className="text-xl font-semibold group-hover:text-primary transitions-color">Project Title</h3>
+                            <h3 href={project.github} target="_blank" className="text-xl font-semibold group-hover:text-primary transitions-color">Project Title</h3>
                             <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all"/>
                         </div>
                         <p className="text-mute-foreground text-sm">{project.description}</p>
