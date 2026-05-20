@@ -4,6 +4,7 @@ import {About} from "@/sections/About";
 import {Proj} from "@/sections/Proj";
 import {Exp} from "@/sections/Exp";
 import {Contact} from "@/sections/Contact";
+import { BackgroundMusic } from "./components/BackgroundMusic";
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
   return (
     <>
      <div className="min-h-screen overflow-x-hidden">
+      <BackgroundMusic/>
       <Navbar />
       <main>
         <Hero />
