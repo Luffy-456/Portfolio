@@ -1,6 +1,7 @@
 import { Download } from "lucide-react";
 export const AnimatedBorderButton=()=>{
     return (
+        <a href="https://drive.google.com/uc?export=download&id=1hOKI9d-_DEHUw5ZUQLsAhlCtvF7runbK">
         <button className="relative bg-transparent border border-border 
         text-foreground hover:border-primary/50 transition-all 
         duration-1000 focus:outline-none focus-visible:ring-2 
@@ -32,5 +33,6 @@ export const AnimatedBorderButton=()=>{
                 Download Resume
             </span>
         </button>
+        </a>
     );
 }

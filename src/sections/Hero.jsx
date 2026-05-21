@@ -88,7 +88,7 @@ export const Hero = () => {
               {/* call to action buttons */}
               <div className="flex flex-wrap gap-4 ani-fade-in ani-delay-300">
                 <Button size="lg" className="">
-                  Contact ME <ArrowRight className="w-5 h-5" />
+                  <a href="#Contact">Contact ME</a> <ArrowRight className="w-5 h-5" />
                 </Button>
                 <AnimatedBorderButton />
               </div>
