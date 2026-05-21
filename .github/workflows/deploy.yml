@@ -20,11 +20,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    env:
-      VITE_EMAILJS_SERVICE_ID: ${{ secrets.VITE_EMAILJS_SERVICE_ID }}
-      VITE_EMAILJS_TEMPLATE_ID: ${{ secrets.VITE_EMAILJS_TEMPLATE_ID }}
-      VITE_EMAILJS_PUBLIC_ID: ${{ secrets.VITE_EMAILJS_PUBLIC_ID }}
-
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -38,7 +33,24 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
+      - name: Remove Old Dist
+        run: rm -rf dist
+
+      - name: Debug ENV
+        run: |
+          echo "SERVICE=$VITE_EMAILJS_SERVICE_ID"
+          echo "TEMPLATE=$VITE_EMAILJS_TEMPLATE_ID"
+          echo "PUBLIC=$VITE_EMAILJS_PUBLIC_ID"
+        env:
+          VITE_EMAILJS_SERVICE_ID: ${{ secrets.VITE_EMAILJS_SERVICE_ID }}
+          VITE_EMAILJS_TEMPLATE_ID: ${{ secrets.VITE_EMAILJS_TEMPLATE_ID }}
+          VITE_EMAILJS_PUBLIC_ID: ${{ secrets.VITE_EMAILJS_PUBLIC_ID }}
+
       - name: Build Vite App
+        env:
+          VITE_EMAILJS_SERVICE_ID: ${{ secrets.VITE_EMAILJS_SERVICE_ID }}
+          VITE_EMAILJS_TEMPLATE_ID: ${{ secrets.VITE_EMAILJS_TEMPLATE_ID }}
+          VITE_EMAILJS_PUBLIC_ID: ${{ secrets.VITE_EMAILJS_PUBLIC_ID }}
         run: npm run build
 
       - name: Setup GitHub Pages
