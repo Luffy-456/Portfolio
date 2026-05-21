@@ -55,9 +55,11 @@ export const Navbar = () => {
                 
                 {/* contact me */}
                 <div className="hidden md:block">
-                    <Button size="sm">
-                        Contact ME
-                    </Button>
+                    <a href="#Contact" onClick={()=>setMM(false)}>
+                        <Button size="sm">
+                            Contact ME
+                        </Button>
+                    </a>
                 </div>
 
                 {/* mobile menu button */}
@@ -80,9 +82,9 @@ export const Navbar = () => {
                         </a>
                         ))}
 
-                        <Button onClick={()=>setMM(false)}>
-                            Contact ME
-                        </Button>
+                        {/* <Button asChild onClick={()=>setMM(false)}>
+                        Contact ME
+                        </Button> */}
                     </div>
                 </div>
             )}
