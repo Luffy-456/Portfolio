@@ -20,6 +20,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    env:
+      VITE_EMAILJS_SERVICE_ID: ${{ secrets.VITE_EMAILJS_SERVICE_ID }}
+      VITE_EMAILJS_TEMPLATE_ID: ${{ secrets.VITE_EMAILJS_TEMPLATE_ID }}
+      VITE_EMAILJS_PUBLIC_ID: ${{ secrets.VITE_EMAILJS_PUBLIC_ID }}
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
