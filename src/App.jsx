@@ -5,6 +5,7 @@ import {Proj} from "@/sections/Proj";
 import {Exp} from "@/sections/Exp";
 import {Contact} from "@/sections/Contact";
 import { BackgroundMusic } from "./components/BackgroundMusic";
+import {Footer} from  "@/layout/Footer";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Exp />
         <Contact />
       </main>
+      <Footer />
      </div>
     </>
   )
